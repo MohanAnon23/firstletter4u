@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
   <title>Will you be my Valentine?</title>
   <style>
     body {
       background: #ffe6eb;
-      font-family: Arial, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
     }
 
     .card {
@@ -19,16 +19,11 @@
       border-radius: 15px;
       text-align: center;
       width: 320px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
     img {
-      width: 80px;
-      margin-bottom: 15px;
-    }
-
-    h2 {
-      margin-bottom: 20px;
+      width: 90px;
     }
 
     button {
@@ -42,44 +37,48 @@
     #yes {
       background: #ff4d6d;
       color: white;
-      margin-right: 10px;
     }
 
     #no {
-      background: #e0e0e0;
+      background: #ddd;
       position: absolute;
     }
   </style>
 </head>
 <body>
 
-  <div class="card">
-    <img src="https://cdn-icons-png.flaticon.com/512/742/742751.png">
-    <h2>Will you be my Valentine? 💖</h2>
-    <button id="yes" onclick="yesClicked()">Yes</button>
-    <button id="no" onmouseover="moveNo()">No</button>
-    <p style="font-size:12px;color:gray;margin-top:15px;">
-      “No” seems a bit shy 😈
-    </p>
-  </div>
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-love.mp3">
+</audio>
+
+<div class="card">
+  <img src="https://cdn-icons-png.flaticon.com/512/742/742751.png">
+  <h2>Will you be my Valentine? 💖</h2>
+  <br>
+  <button id="yes" onclick="yes()">Yes</button>
+  <button id="no" onmouseover="move()">No</button>
+  <p style="font-size:12px;color:gray;margin-top:15px">
+    No seems a bit shy 😈
+  </p>
+</div>
 
 <script>
-  function yesClicked() {
+  function yes() {
     document.body.innerHTML = `
       <div style="text-align:center;">
-        <h1>YAYYY 💕🥹</h1>
-        <p>You just made my day!</p>
+        <h1>YAYYYYY 💕🥹</h1>
+        <h2>Best decision ever.</h2>
       </div>
     `;
   }
 
-  function moveNo() {
+  function move() {
     const no = document.getElementById("no");
-    const x = Math.random() * 200 - 100;
-    const y = Math.random() * 200 - 100;
-    no.style.transform = `translate(${x}px, ${y}px)`;
+    no.style.left = Math.random() * window.innerWidth + "px";
+    no.style.top = Math.random() * window.innerHeight + "px";
   }
 </script>
 
 </body>
 </html>
+
