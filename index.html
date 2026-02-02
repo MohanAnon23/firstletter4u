@@ -1,97 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Valentine 💙</title>
+  <meta charset="UTF-8">
+  <title>Will you be my Valentine?</title>
 
-<style>
-  body {
-    margin: 0;
-    height: 100vh;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Segoe UI", sans-serif;
-    overflow: hidden;
+  <style>
+    body {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    .card {
+      background: #0b1d2a;
+      width: 340px;
+      padding: 30px;
+      border-radius: 18px;
+      text-align: center;
+      color: #e6f1ff;
+      position: relative;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    }
+
+    img {
+      width: 90px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin-bottom: 25px;
+    }
+
+    .buttons {
+      position: relative;
+      height: 80px;
+    }
+
+    button {
+      padding: 10px 22px;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      position: absolute;
+    }
+
+    #yes {
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: #002b45;
+      left: 50%;
+      transform: translateX(-120%);
+    }
+
+    #no {
+      background: #1f3b52;
+      color: #cfe9ff;
+      left: 50%;
+      transform: translateX(20%);
+    }
+
+    small {
+      color: #9fc9ff;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card" id="card">
+    <img src="https://cdn-icons-png.flaticon.com/512/742/742751.png">
+    <h2>Will you be my Valentine? 💙</h2>
+
+    <div class="buttons" id="box">
+      <button id="yes" onclick="yesClicked()">Yes</button>
+      <button id="no" onmouseover="moveNo()">No</button>
+    </div>
+
+    <small>No is feeling shy today 😌</small>
+  </div>
+
+<script>
+  function yesClicked() {
+    document.getElementById("card").innerHTML = `
+      <h1>💙 YAY 💙</h1>
+      <p>You just made my heart very happy.</p>
+    `;
   }
 
-  .phone {
-    width: 330px;
-    background: #ece5dd;
-    border-radius: 30px;
-    padding: 15px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-    position: relative;
-  }
+  function moveNo() {
+    const box = document.getElementById("box");
+    const no = document.getElementById("no");
 
-  .header {
-    background: #075e54;
-    color: white;
-    padding: 10px;
-    border-radius: 20px 20px 10px 10px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+    const maxX = box.clientWidth - no.clientWidth;
+    const maxY = box.clientHeight - no.clientHeight;
 
-  .avatar {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background: #fff;
-  }
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
 
-  .chat {
-    padding: 15px;
-    position: relative;
-    height: 220px;
+    no.style.left = x + "px";
+    no.style.top = y + "px";
   }
+</script>
 
-  .bubble {
-    background: #dcf8c6;
-    padding: 10px 14px;
-    border-radius: 15px;
-    width: fit-content;
-    margin-bottom: 15px;
-  }
+</body>
+</html>
 
-  .buttons {
-    position: relative;
-    height: 80px;
-  }
-
-  button {
-    padding: 8px 18px;
-    border-radius: 20px;
-    border: none;
-    font-size: 15px;
-    cursor: pointer;
-    position: absolute;
-  }
-
-  #yes {
-    background: #1e90ff;
-    color: white;
-    left: 40px;
-    bottom: 10px;
-  }
-
-  #no {
-    background: #ccc;
-    right: 40px;
-    bottom: 10px;
-  }
-
-  .heart {
-    position: absolute;
-    color: #1e90ff;
-    font-size: 18px;
-    animation: float 3s linear forwards;
-  }
-
-  @keyframes float {
-    0% { opacity: 1; transform: translateY(0); }
-    100% { opacity: 0; transform: translat
 
 
