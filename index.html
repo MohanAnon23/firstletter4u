@@ -32,12 +32,14 @@
     }
 
     h2 {
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
 
     .buttons {
       position: relative;
-      height: 80px;
+      width: 100%;
+      height: 100px; /* increased height */
+      margin-top: 20px;
     }
 
     button {
@@ -52,15 +54,15 @@
     #yes {
       background: linear-gradient(135deg, #4facfe, #00f2fe);
       color: #002b45;
-      left: 50%;
-      transform: translateX(-120%);
+      left: 50px;
+      top: 30px;
     }
 
     #no {
       background: #1f3b52;
       color: #cfe9ff;
-      left: 50%;
-      transform: translateX(20%);
+      left: 190px;
+      top: 30px;
     }
 
     small {
@@ -69,10 +71,13 @@
     }
   </style>
 </head>
+
 <body>
-  <audio autoplay loop>
+
+  <!-- ⚠️ iOS blocks autoplay until interaction -->
+  <audio id="music" loop>
     <source src="https://www.bensound.com/bensound-music/bensound-love.mp3">
-  </audio>  
+  </audio>
 
   <div class="card" id="card">
     <img src="https://cdn-icons-png.flaticon.com/512/742/742751.png">
@@ -88,6 +93,8 @@
 
 <script>
   function yesClicked() {
+    document.getElementById("music").play();
+
     document.getElementById("card").innerHTML = `
       <h1>💙 YAY 💙</h1>
       <p>You just made my heart very happy.</p>
