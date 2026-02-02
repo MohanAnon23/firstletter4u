@@ -1,84 +1,97 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Will you be my Valentine?</title>
-  <style>
-    body {
-      background: #ffe6eb;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-family: Arial, sans-serif;
-      overflow: hidden;
-    }
+<meta charset="UTF-8">
+<title>Valentine 💙</title>
 
-    .card {
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      text-align: center;
-      width: 320px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-
-    img {
-      width: 90px;
-    }
-
-    button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    #yes {
-      background: #ff4d6d;
-      color: white;
-    }
-
-    #no {
-      background: #ddd;
-      position: absolute;
-    }
-  </style>
-</head>
-<body>
-
-<audio autoplay loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-love.mp3">
-</audio>
-
-<div class="card">
-  <img src="https://cdn-icons-png.flaticon.com/512/742/742751.png">
-  <h2>Will you be my Valentine? 💖</h2>
-  <br>
-  <button id="yes" onclick="yes()">Yes</button>
-  <button id="no" onmouseover="move()">No</button>
-  <p style="font-size:12px;color:gray;margin-top:15px">
-    No seems a bit shy 😈
-  </p>
-</div>
-
-<script>
-  function yes() {
-    document.body.innerHTML = `
-      <div style="text-align:center;">
-        <h1>YAYYYYY 💕🥹</h1>
-        <h2>Best decision ever.</h2>
-      </div>
-    `;
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Segoe UI", sans-serif;
+    overflow: hidden;
   }
 
-  function move() {
-    const no = document.getElementById("no");
-    no.style.left = Math.random() * window.innerWidth + "px";
-    no.style.top = Math.random() * window.innerHeight + "px";
+  .phone {
+    width: 330px;
+    background: #ece5dd;
+    border-radius: 30px;
+    padding: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    position: relative;
   }
-</script>
 
-</body>
-</html>
+  .header {
+    background: #075e54;
+    color: white;
+    padding: 10px;
+    border-radius: 20px 20px 10px 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #fff;
+  }
+
+  .chat {
+    padding: 15px;
+    position: relative;
+    height: 220px;
+  }
+
+  .bubble {
+    background: #dcf8c6;
+    padding: 10px 14px;
+    border-radius: 15px;
+    width: fit-content;
+    margin-bottom: 15px;
+  }
+
+  .buttons {
+    position: relative;
+    height: 80px;
+  }
+
+  button {
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    position: absolute;
+  }
+
+  #yes {
+    background: #1e90ff;
+    color: white;
+    left: 40px;
+    bottom: 10px;
+  }
+
+  #no {
+    background: #ccc;
+    right: 40px;
+    bottom: 10px;
+  }
+
+  .heart {
+    position: absolute;
+    color: #1e90ff;
+    font-size: 18px;
+    animation: float 3s linear forwards;
+  }
+
+  @keyframes float {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translat
+
 
